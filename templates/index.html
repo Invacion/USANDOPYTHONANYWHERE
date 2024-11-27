@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Sube tu Archivo de Audio</title>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>EVA_DE_AUDIO</h1>
+        </header>
+
+        <section class="upload-section">
+            <form action="/upload" method="post" enctype="multipart/form-data" class="upload-form">
+                <label for="file" class="upload-label">Selecciona tu archivo de audio:</label>
+                <input type="file" name="file" accept="audio/*" required class="upload-input">
+                <button type="submit" class="upload-btn">EVALUAR 😊</button>
+                <p class="info-message">Solo se permiten archivos de audio en formato WAV.</p>
+                <p class="info-message">CONVERTIDOR AQUÍ -->: <a href="https://www.freeconvert.com/es/mp3-to-wav" target="_blank">Haz clic aquí para convertir MP3 a WAV</a></p>
+                <p class="info-message">GRABADOR (WAV) AQUÍ -->: <a href="https://products.aspose.app/audio/es/voice-recorder/wav" target="_blank">Recuerda cerrar la pagina después del uso</a></p>
+                {% if error_message %}
+                    <div class="error-message">
+                        {{ error_message }}
+                    </div>
+                {% endif %}
+            </form>
+        </section>
+
+        <footer>
+            <p>&copy; 2024 Transcripción de Audio</p>
+        </footer>
+    </div>
+</body>
+</html>
